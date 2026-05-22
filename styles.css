@@ -31,16 +31,47 @@ header h1 {
     font-family: fantasy;
     font-size: 45px;
     max-width: 90%;
-    color: rgb(255, 0, 0);
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px 5px rgb(0, 0, 0);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 10px 20px;
     display: inline-block;
-    border: none;
     border-radius: 30px;
+    border: 1px solid rgba(255, 100, 0, 0.5);
+
+    animation: fuegoAnim 0.6s infinite alternate;
+}
+
+@keyframes fuegoAnim {
+  0% {
+    text-shadow:
+      0 0 5px #ff3b00,
+      0 0 10px #ff6a00,
+      0 0 20px #ff9a00,
+      0 0 40px #ff3b00;
+    transform: translateY(0px);
+  }
+
+  50% {
+    text-shadow:
+      0 0 8px #ff2a00,
+      0 0 18px #ff5e00,
+      0 0 30px #ffb300,
+      0 0 60px #ff2a00;
+    transform: translateY(-3px);
+  }
+
+  100% {
+    text-shadow:
+      0 0 4px #ff1a00,
+      0 0 12px #ff4d00,
+      0 0 25px #ff8c00,
+      0 0 50px #ff1a00;
+    transform: translateY(1px);
+  }
 }
 
 header input {
+    color: grey;
     padding: 10px;
     font-size: 25px;
     border: none;
@@ -55,8 +86,13 @@ header input:hover {
 }
 
 header input:focus {
+    color: black;
     outline: none;
     box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+}
+
+header input:focus::placeholder {
+    opacity: 0;
 }
 
 header button {
