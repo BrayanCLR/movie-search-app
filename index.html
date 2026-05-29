@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Buscador</title>
     <script type="module" src="/src/main.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Buscador de Peliculas</h1>
+        <h1>🍿 Explora el Mundo del Cine 🎬</h1>
         <form id="formBusqueda">
-            <input type="text" id="busqueda" placeholder="Escribe un Show...">
+            <label for="busqueda">🫵 ¿Qué quieres ver hoy?</label>
+            <input type="text" id="busqueda" placeholder="Escribe Una Pelicula o Serie...">
             <button type="submit" id="btnBuscar">Buscar</button>
         </form>
     </header>
     <main>
         <section class="contenedor">
-            <div id="resultados"></div>
+            <ul id="resultados" aria-live="polite"></ul>
         </section>
     </main>
 </body>
