@@ -1,62 +1,126 @@
+/* Reset básico para asegurar consistencia entre navegadores */
+* {
+  margin: 0;
+  /* elimina el margen por defecto */
+  padding: 0;
+  /* elimina el padding por defecto */
+}
+
+/* Fondo principal y animación del cuerpo de la página */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    background-image: linear-gradient(125deg,
-            yellow 0%,
-            rgb(186, 245, 23) 20%,
-            rgb(255, 187, 0) 40%,
-            rgb(252, 113, 0) 60%,
-            red 80%,
-            orange 100%);
-    background-size: 400% 400%;
-    animation: fondoAnimado 5s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  /* define la tipografía general */
+  min-height: 100vh;
+  /* ocupa toda la altura de la ventana */
+  /* evita el scroll global de la página */
+  background-image: linear-gradient(125deg,
+      /* crea el degradado de fondo */
+      yellow 0%,
+      rgb(186, 245, 23) 20%,
+      rgb(255, 187, 0) 40%, 
+      rgb(252, 113, 0) 60%,
+      red 80%,
+      orange 100%);
+  background-size: 400% 400%;
+  /* amplia el tamaño del degradado para la animación */
+  animation: fondoAnimado 5s ease infinite;
+  /* mueve el degradado de forma continua */
 }
 
-@keyframes fondoAnimado{
-    0%{
-        background-position: 0% 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    100%{
-        background-position: 0% 50%;
-    }
+/* Animación del fondo para dar sensación dinámica */
+@keyframes fondoAnimado {
+  0% {
+    background-position: 0% 50%;
+    /* posición inicial */
+  }
+
+  50% {
+    background-position: 100% 50%;
+    /* posición intermedia */
+  }
+
+  100% {
+    background-position: 0% 50%;
+    /* vuelve al inicio */
+  }
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    padding: 20px;
+/* Contenedor principal que organiza header + layout */
+.app-shell {
+  height: 100dvh;
+  /* ocupa toda la altura disponible */
+  display: flex;
+  /* usa flexbox para apilar verticalmente */
+  flex-direction: column;
+  /* coloca el header arriba y el contenido debajo */
+  /* evita que el contenido sobresalga */
 }
 
-header form {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 70px;
-    position: relative;
+/* Encabezado superior con título y buscador */
+.top-header {
+  flex: 0 0 auto;
+  /* mantiene su tamaño fijo */
+  z-index: 100;
+  /* asegura que quede por encima de otros elementos */
+  display: flex;
+  /* organiza el contenido interno */
+  flex-direction: column;
+  /* apila en columna */
+  align-items: center;
+  /* centra horizontalmente */
+  text-align: center;
+  /* centra el texto */
+  justify-content: center;
+  /* centra verticalmente */
+  padding: 18px 20px 12px;
+  /* espacio interno */
+  backdrop-filter: blur(6px);
+  /* difumina el fondo detrás del header */
 }
 
-header h1 {
-    font-size: 50px;
-    max-width: 90%;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 100, 0, 0.5);
-    box-shadow: 0px 0px 5px 2px rgb(255, 0, 0);
-    animation: fuegoAnim 0.6s infinite alternate;
+/* Formulario de búsqueda dentro del header */
+.top-header form {
+  display: flex;
+  /* organiza inputs y botón en una fila */
+  gap: 15px;
+  /* separa los elementos */
+  align-items: center;
+  /* centra verticalmente */
+  justify-content: center;
+  /* centra horizontalmente */
+  flex-wrap: wrap;
+  /* permite bajar elementos si no caben */
+  margin-top: 75px;
+  /* separa el formulario del título */
+  position: relative;
+  /* permite ubicar el label flotante */
 }
 
+/* Título principal con estilo llamativo */
+.top-header h1 {
+  font-size: 50px;
+  /* tamaño grande del texto */
+  max-width: 90%;
+  /* evita que ocupe demasiado ancho */
+  color: #fff;
+  /* color claro para contraste */
+  background-color: rgba(0, 0, 0, 0.85);
+  /* fondo oscuro semitransparente */
+  padding: 10px 20px;
+  /* espacio interno */
+  display: inline-block;
+  /* permite dar padding y borde correctamente */
+  border-radius: 30px;
+  /* esquinas redondeadas */
+  border: 1px solid rgba(255, 100, 0, 0.5);
+  /* borde sutil */
+  box-shadow: 0px 0px 5px 2px rgb(255, 0, 0);
+  /* sombra intensa para efecto llamativo */
+  animation: fuegoAnim 0.6s infinite alternate;
+  /* da movimiento al título */
+}
+
+/* Animación del título para dar efecto de “fuego” */
 @keyframes fuegoAnim {
   0% {
     text-shadow:
@@ -65,6 +129,7 @@ header h1 {
       0 0 20px #ff9a00,
       0 0 40px #ff3b00;
     transform: translateY(0px);
+    /* mantiene la posición base */
   }
 
   50% {
@@ -74,6 +139,7 @@ header h1 {
       0 0 30px #ffb300,
       0 0 60px #ff2a00;
     transform: translateY(-3px);
+    /* sube ligeramente */
   }
 
   100% {
@@ -83,145 +149,474 @@ header h1 {
       0 0 25px #ff8c00,
       0 0 50px #ff1a00;
     transform: translateY(1px);
+    /* baja un poco */
   }
 }
 
-header label{
-    color: white;
-    font-family: fantasy;
-    font-size: 25px;
-    font-weight: 300;
-    background-color: #000000;
-    box-shadow: 0px 0px 5px 2px blueviolet;
-    border-radius: 20px;
-    padding: 12px;
-    position: absolute;
-    top: -65px;
+/* Etiqueta flotante del buscador */
+.top-header label {
+  color: white;
+  /* texto claro */
+  font-family: fantasy;
+  /* estilo más decorativo */
+  font-size: 25px;
+  /* tamaño visible */
+  font-weight: 300;
+  /* peso ligero */
+  background-color: #000000;
+  /* fondo negro */
+  box-shadow: 0px 0px 5px 2px blueviolet;
+  /* sombra colorida */
+  border-radius: 20px;
+  /* esquinas redondeadas */
+  padding: 12px;
+  /* espacio interno */
+  position: absolute;
+  /* se ubica sobre el formulario */
+  top: -65px;
+  /* lo sube para quedar encima del input */
 }
 
-header input {
-    color: grey;
-    padding: 10px;
-    font-size: 25px;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
-    transition: all 0.3s ease-in-out;
-    width: 320px;
+/* Campo de texto del buscador */
+.top-header input {
+  color: grey;
+  /* color de texto apagado */
+  padding: 10px;
+  /* espacio interno */
+  font-size: 25px;
+  /* tamaño grande para legibilidad */
+  font-family: 'Poppins', sans-serif;
+  /* tipografía consistente */
+  border: none;
+  /* elimina borde estándar */
+  border-radius: 10px;
+  /* bordes redondeados */
+  box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
+  /* sombra fuerte */
+  transition: all 0.3s ease-in-out;
+  /* animación suave */
+  width: 320px;
+  /* ancho fijo */
 }
 
+/* Estilo del placeholder del input */
 input::placeholder {
-    font-style: italic;
-    font-size: 22px;
+  font-style: italic;
+  /* hace el texto más delicado */
+  font-size: 22px;
+  /* ajusta el tamaño */
 }
 
-header input:hover {
-    box-shadow: 0px 0px 10px 5px rgb(0, 0, 0);
+/* Efecto al pasar el mouse sobre el input */
+.top-header input:hover {
+  box-shadow: 0px 0px 10px 5px rgb(0, 0, 0);
+  /* sombra más intensa */
 }
 
-header input:focus {
-    color: black;
-    outline: none;
-    box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+/* Efecto al enfocar el input */
+.top-header input:focus {
+  color: black;
+  /* cambia a texto oscuro */
+  outline: none;
+  /* elimina el contorno predeterminado */
+  box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+  /* resalta con luz */
 }
 
-header input:focus::placeholder {
-    opacity: 0;
+/* Oculta el placeholder al enfocar el input */
+.top-header input:focus::placeholder {
+  opacity: 0;
+  /* desaparece el texto guía */
 }
 
-.mensajeEstado{
-    display: inline-block;
-    color: #e8d2b8;
-    background-color: #41043b;
-    text-shadow: 0 0 12px #e8d2b8;
-    border-radius: 5px;
-    padding: 5px;
-    transition: all 0.3s ease-in-out;
+/* Mensaje de estado mostrado en la interfaz */
+.mensajeEstado {
+  font-size: 25px;
+  /* tamaño del texto */
+  display: inline-block;
+  /* mantiene el estilo de bloque inline */
+  color: #000000;
+  /* texto negro */
+  text-shadow: 0 0 12px #000000;
+  /* resalta el texto */
+  padding: 5px;
+  /* espacio interno */
+  transition: all 0.3s ease-in-out;
+  /* animación suave */
 }
 
-header button {
-    margin-left: 10px;
-    padding: 10px 20px;
-    font-size: 25px;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(255, 0, 0);
-    color: white;
-    box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+/* Botón de búsqueda */
+.top-header button {
+  margin-left: 10px;
+  /* separa del input */
+  padding: 10px 20px;
+  /* espacio interno */
+  font-size: 25px;
+  /* tamaño visible */
+  font-family: 'Poppins', sans-serif;
+  /* mantiene la misma tipografía */
+  border: none;
+  /* elimina borde */
+  border-radius: 10px;
+  /* redondea los bordes */
+  background-color: rgb(255, 0, 0);
+  /* fondo rojo */
+  color: white;
+  /* texto blanco */
+  box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
+  /* sombra fuerte */
+  cursor: pointer;
+  /* muestra mano al pasar */
+  transition: all 0.3s ease-in-out;
+  /* animación suave */
 }
 
-header button:hover {
-    box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
-    background-color: rgb(238, 255, 0);
-    color: rgb(255, 0, 0);
-    transform: scale(1.1);
+/* Efecto hover del botón */
+.top-header button:hover {
+  box-shadow: 0px 0px 10px 5px rgb(255, 255, 255);
+  /* resalta con luz */
+  background-color: rgb(238, 255, 0);
+  /* cambia a amarillo */
+  color: rgb(255, 0, 0);
+  /* texto rojo */
+  transform: scale(1.1);
+  /* agranda ligeramente */
 }
 
-header button:active {
-    background-color: rgb(43, 255, 0);
-    transform: scale(0.9);
-    transition: all 0.02s ease-in-out;
+/* Efecto al presionar el botón */
+.top-header button:active {
+  background-color: rgb(43, 255, 0);
+  /* verde de acción */
+  transform: scale(0.9);
+  /* reduce ligeramente */
+  transition: all 0.02s ease-in-out;
+  /* respuesta rápida */
 }
 
-#resultados{
-    font-family: 'Poppins', sans-serif;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1400px;
-    margin: auto;
+/* Layout principal donde vivirán navbar y contenido */
+.layout {
+  flex: 1;
+  /* ocupa el espacio restante */
+  min-height: 0;
+  /* evita overflow innecesario */
+  display: grid;
+  /* usa columnas */
+  grid-template-columns: 300px minmax(0, 1fr);
+  /* navbar fijo y contenido adaptable */
+
+  /* separa columnas */
+  padding: 18px;
+  /* espacio interno */
+  /* evita scroll del layout completo */
 }
 
+/* navbar vertical con estilo de panel */
+.navbar {
+  position: sticky;
+  /* se mantiene visible al hacer scroll */
+  top: 0;
+  /* se fija al inicio del área */
+  align-self: start;
+  /* evita que se estire verticalmente */
+  display: flex;
+  /* organiza botones en columna */
+  flex-direction: column;
+  /* apila verticalmente */
+  gap: 10px;
+  /* separa botones */
+  padding: 16px;
+  /* espacio interno */
+  background: linear-gradient(180deg,
+      /* crea un fondo degradado */
+      rgba(10, 14, 28, 0.95),
+      rgba(18, 24, 43, 0.92));
+  border-radius: 18px;
+  /* esquinas redondeadas */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  /* borde muy sutil */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+  /* sombra elegante */
+}
+
+/* Encabezado interno del navbar */
+.navbar-top {
+  display: flex;
+  /* organiza icono y texto */
+  align-items: center;
+  /* centra verticalmente */
+  gap: 10px;
+  /* separa icono y texto */
+  color: #fff;
+  /* texto claro */
+  margin-bottom: 6px;
+  /* separa del contenido */
+  align-self: center;
+}
+
+/* Título del navbar */
+.navbar-top h3 {
+  font-size: 1rem;
+  /* tamaño compacto */
+  font-family: 'Montserrat', sans-serif;
+  /* tipografía más moderna */
+}
+
+.categorias-lista {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 50vh;
+  gap: 10px;
+}
+
+/* Botones de categoría del navbar */
+.btn-categoria {
+  width: 95%;
+  /* ocupa todo el ancho disponible */
+  background: rgba(255, 255, 255, 0.06);
+  /* fondo sutil */
+  color: #f3f3f3;
+  /* texto claro */
+  border: 1px solid rgba(255, 100, 0, 0.22);
+  /* borde tenue */
+  padding: 11px 12px;
+  /* espacio interno */
+  font-size: 15px;
+  /* tamaño legible */
+  font-family: 'Poppins', sans-serif;
+  /* mantiene la tipografía */
+  border-radius: 14px;
+  /* esquinas redondeadas */
+  cursor: pointer;
+  /* indica interacción */
+  text-align: left;
+  /* alinea texto a la izquierda */
+  transition: all 0.25s ease;
+  /* transición suave */
+}
+
+/* Estado hover de los botones */
+.btn-categoria:hover {
+  background: linear-gradient(90deg, #ff7a00, #ffbf00);
+  /* resalta con gradiente */
+  color: #111;
+  /* cambia texto a oscuro */
+  transform: translateX(4px);
+  /* mueve ligeramente a la derecha */
+  box-shadow: 0 0 12px rgba(255, 180, 0, 0.22);
+  /* añade luz */
+}
+
+/* Estado activo del botón seleccionado */
+.btn-categoria.active {
+  background: linear-gradient(90deg, #ff4d00, #ff9b00);
+  /* destaca más */
+  color: #111;
+  /* buen contraste */
+  font-weight: 600;
+  /* resalta el texto */
+}
+
+/* Efecto al presionar el botón */
+.btn-categoria:active {
+  transform: scale(0.98);
+  /* reduce levemente */
+}
+
+/* Panel del contenido principal de resultados */
+.main-panel {
+  min-width: 0;
+  /* permite que el contenido se adapte sin romper el layout */
+  min-height: 0;
+  /* evita problemas de altura al usar scroll */
+  overflow: auto;
+  /* habilita scroll solo en este panel */
+  scroll-behavior: smooth;
+}
+
+/* Grid de resultados */
+#resultados {
+  font-family: 'Poppins', sans-serif;
+  /* mantiene la tipografía consistente */
+  display: grid;
+  /* organiza las tarjetas en cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* crea columnas automáticas */
+  gap: 20px;
+  /* separa las tarjetas */
+  padding: 20px;
+  /* espacio interno */
+  max-width: 1400px;
+  /* limita el ancho máximo */
+  margin: auto;
+  /* centra el contenido */
+}
+
+/* Tarjeta individual de cada show */
 main .show {
-    overflow: hidden;
-    list-style: none;
-    background-image: linear-gradient(125deg,
-            rgba(255, 255, 255, 0.8) 0%,
-            rgba(255, 255, 255, 0.6) 50%,
-            rgba(255, 255, 255, 0.8) 100%);
-    padding: 10px;
-    border: 10px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
-    transition: all 0.3s ease-in-out;
-    font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    line-height: 1.4;
-    color: #222;
-    transition: all 0.3s ease;
+  text-align: center;
+  /* evita que contenido sobresalga */
+  list-style: none;
+  /* elimina viñetas */
+  background-image: linear-gradient(125deg,
+      /* fondo suave tipo vidrio */
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.8) 100%);
+  padding: 10px;
+  /* espacio interno */
+  border: 10px solid rgba(0, 0, 0, 0.5);
+  /* borde fuerte */
+  border-radius: 20px;
+  /* borde redondeado */
+  box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
+  /* sombra de tarjeta */
+  transition: all 0.3s ease-in-out;
+  /* animación suave */
+  font-size: 15px;
+  /* tamaño legible */
+  line-height: 1.4;
+  /* mejora la lectura */
+  color: #222;
+  /* color de texto oscuro */
 }
 
-main .show:hover{
-    transform: scale(1.02);
+/* Efecto hover de la tarjeta */
+main .show:hover {
+  transform: scale(1.02);
+  /* aumenta ligeramente al pasar el mouse */
 }
 
-main h2{
-    text-align: center;
+/* Título de cada tarjeta */
+main h2 {
+  text-align: center;
+  /* centra el título */
 }
 
+/* Imagen del póster */
 .poster {
+  width: 100%;
+  /* ocupa todo el ancho de la tarjeta */
+  border-radius: 10px;
+  /* bordes redondeados */
+  box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
+  /* sombra de imagen */
+  transition: all 0.3s ease;
+  /* animación suave */
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+/* Hover de la imagen */
+.poster:hover {
+  transform: scale(1.02);
+  /* leve zoom */
+}
+
+/* Lista de detalles debajo de la tarjeta */
+.dlListas {
+  text-align: center;
+  /* centra el contenido */
+  margin-top: 20px;
+  /* separa del texto superior */
+  margin-bottom: 20px;
+  /* espacio inferior */
+}
+
+/* Elementos de detalle dentro del dl */
+.dd {
+  margin-left: 15px;
+  /* separa el contenido del label */
+}
+
+.main-panel::-webkit-scrollbar {
+  width: 20px;
+}
+
+.main-panel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-block: 30px;
+}
+
+.main-panel::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff0000, #ffcc00);
+  border-radius: 10px;
+}
+
+.main-panel::-webkit-scrollbar-thumb:hover {
+  background: yellow;
+}
+
+.categorias-lista::-webkit-scrollbar {
+  width: 20px;
+}
+
+.categorias-lista::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  margin-block: 30px;
+}
+
+.categorias-lista::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff0000, #ffcc00);
+  border-radius: 10px;
+}
+
+.categorias-lista::-webkit-scrollbar-thumb:hover {
+  background: yellow;
+}
+
+/* Ajustes responsivos para pantallas medianas */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    /* pasa a una sola columna */
+  }
+
+  .navbar {
+    position: static;
+    /* deja de fijarse para que no comparta espacio raro */
+  }
+  .main-panel {
+    height: calc(100dvh - 120px); 
+    /* ajusta según tu header */
+  }
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 640px) {
+  .top-header input {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 2px rgb(0, 0, 0);
-    transition: all 0.3s ease;
-}
+    max-width: 300px;
+    font-size: 18px;
+  }
 
-.poster:hover{
-    transform: scale(1.02);
-}
+  .top-header button {
+    font-size: 18px;
+  }
 
-.dlListas{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+  .top-header {
+    padding: 16px;
+    /* reduce el espacio interno */
+  }
 
-.dd{
-    margin-left: 15px;
+  .top-header form {
+    margin-top: 50px;
+    /* ajusta separación */
+  }
+
+  .top-header label {
+    position: static;
+    /* evita que quede flotando */
+    margin-bottom: 10px;
+    /* añade espacio inferior */
+  }
+
+  .top-header button {
+    width: 100%;
+    /* el botón ocupa todo el ancho */
+    margin-left: 0;
+    /* elimina el margen lateral */
+  }
 }

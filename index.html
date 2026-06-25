@@ -6,24 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Buscador</title>
     <script type="module" src="/src/main.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <h1>🍿 Explora el Mundo del Cine 🎬</h1>
-        <form id="formBusqueda">
-            <label for="busqueda">🫵 ¿Qué quieres ver hoy?</label>
-            <input type="text" id="busqueda" placeholder="Escribe Una Pelicula o Serie...">
-            <button type="submit" id="btnBuscar">Buscar</button>
-        </form>
-        <h2 id="mensajeEstado"></h2>
-    </header>
-    <main>
-        <section class="contenedor">
-            <ul id="resultados" aria-live="polite"></ul>
-        </section>
-    </main>
+    <div class="app-shell">
+        <!-- Header fijo con la búsqueda y el título -->
+        <header class="top-header">
+            <h1>🍿 Explora el Mundo del Cine 🎬</h1>
+
+            <form id="formBusqueda">
+                <label for="busqueda">🫵 ¿Qué quieres ver hoy?</label>
+                <input type="text" id="busqueda" placeholder="Escribe Una Pelicula o Serie...">
+                <button type="submit" id="btnBuscar">Buscar</button>
+            </form>
+
+            <!-- Cambiado a div para mejor accesibilidad si inicia vacío -->
+            <div id="mensajeEstado" role="status"></div>
+        </header>
+
+        <!-- Layout principal: navbar + contenido -->
+        <div class="layout">
+            <!-- CAMBIO: Usamos <nav> porque es la navegación/filtro de la app -->
+            <nav class="navbar" aria-label="Categorías de películas">
+                <div class="navbar-top">
+                    <span>🎬</span>
+                    <h3>Categorías</h3>
+                </div>
+                
+                <div class="categorias-lista"></div>
+            </nav>
+
+            <!-- Contenido principal con resultados -->
+            <main class="main-panel">
+                <section class="contenedorShows">
+                    <ul id="resultados" aria-live="polite"></ul>
+                </section>
+            </main>
+        </div>
+    </div>
 </body>
 
 </html>
