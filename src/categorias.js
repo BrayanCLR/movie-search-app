@@ -17,4 +17,3 @@ export const todasCategorias = {
     ...crearCategoriasEntradas(genresMovie, "movie"),
     ...crearCategoriasEntradas(genresTV, "tv")
 };
-console.log(todasCategorias);

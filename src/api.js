@@ -21,7 +21,6 @@ export const buscarShowsEnAPI = async (query) => {
     }
 
     try {
-        console.log(`${API_URL_INPUT}${encodeURIComponent(query)}`);
         const request = await fetch(`${API_URL_INPUT}${encodeURIComponent(query)}`); // encodeURIComponent previene errores con espacios/acentos
 
         if (!request.ok) {
@@ -60,7 +59,6 @@ export const buscarShowsEnAPI = async (query) => {
 
 export const buscarShowPorCategoriaEnAPI = async (id, tipo) => {
     try {
-        console.log(`${API_URL_CATEGORIA}${tipo}?api_key=${API_KEY}&with_genres=${id}&language=es-MX`);
         const response = await fetch(`${API_URL_CATEGORIA}${tipo}?api_key=${API_KEY}&with_genres=${id}&language=es-MX`);
 
         if (!response.ok) {

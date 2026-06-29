@@ -82,7 +82,7 @@ body {
 .top-header form {
   display: flex;
   /* organiza inputs y botón en una fila */
-  gap: 15px;
+  gap: 5px;
   /* separa los elementos */
   align-items: center;
   /* centra verticalmente */
@@ -98,7 +98,7 @@ body {
 
 /* Título principal con estilo llamativo */
 .top-header h1 {
-  font-size: 50px;
+  font-size: 35px;
   /* tamaño grande del texto */
   max-width: 90%;
   /* evita que ocupe demasiado ancho */
@@ -157,9 +157,7 @@ body {
 .top-header label {
   color: white;
   /* texto claro */
-  font-family: fantasy;
-  /* estilo más decorativo */
-  font-size: 25px;
+  font-size: 15px;
   /* tamaño visible */
   font-weight: 300;
   /* peso ligero */
@@ -173,7 +171,7 @@ body {
   /* espacio interno */
   position: absolute;
   /* se ubica sobre el formulario */
-  top: -65px;
+  top: -55px;
   /* lo sube para quedar encima del input */
 }
 
@@ -183,7 +181,7 @@ body {
   /* color de texto apagado */
   padding: 10px;
   /* espacio interno */
-  font-size: 25px;
+  font-size: 15px;
   /* tamaño grande para legibilidad */
   font-family: 'Poppins', sans-serif;
   /* tipografía consistente */
@@ -195,7 +193,7 @@ body {
   /* sombra fuerte */
   transition: all 0.3s ease-in-out;
   /* animación suave */
-  width: 320px;
+  width: 312px;
   /* ancho fijo */
 }
 
@@ -231,7 +229,7 @@ input::placeholder {
 
 /* Mensaje de estado mostrado en la interfaz */
 .mensajeEstado {
-  font-size: 25px;
+  font-size: 20px;
   /* tamaño del texto */
   display: inline-block;
   /* mantiene el estilo de bloque inline */
@@ -251,7 +249,7 @@ input::placeholder {
   /* separa del input */
   padding: 10px 20px;
   /* espacio interno */
-  font-size: 25px;
+  font-size: 15px;
   /* tamaño visible */
   font-family: 'Poppins', sans-serif;
   /* mantiene la misma tipografía */

@@ -113,7 +113,7 @@ const construirBotonesCategorias = () => {
         botonCategoria.dataset.id = genero.id; 
         botonCategoria.dataset.tipo = genero.tipo;
         botonCategoria.textContent = genero.genero;
-        console.log(botonCategoria)
+
         fragmentoBotones.append(botonCategoria);
     });
     return fragmentoBotones;
